@@ -8,6 +8,17 @@ module.exports = (env, options) => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'main.js',
     },
+    module: {
+      rules: [
+        {
+          test: /\.s?css$/,
+          use: [
+            'style-loader',
+            'css-loader',
+          ],
+        },
+      ],
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html'
