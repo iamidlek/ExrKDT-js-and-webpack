@@ -15,6 +15,7 @@ module.exports = (env, options) => {
           use: [
             'style-loader',
             'css-loader',
+            'sass-loader',
           ],
         },
       ],
