@@ -158,3 +158,23 @@ npm i -D @babel/plugin-transform-classes
 
 
 npm i -D copy-webpack-plugin
+
+from static 으로 설정
+
+static의 정적 파일을 dist 폴더에 복사해서 온다
+
+static/favicon.ico 는 자동으로 등록된다
+
+
+
+////
+
+ssas란
+css전처리기 preprocessor
+css가 동작하기 전에 변환
+
+postcss란
+후처리기
+css 완성된후 기는중 하나인 autoprefixer로 붙여줌
+
+loader는 webpack과 패키지 간의 중간 전달 역할들
