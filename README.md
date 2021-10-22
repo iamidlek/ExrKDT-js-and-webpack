@@ -155,3 +155,6 @@ npm i -D @babel/plugin-transform-classes
   ]
 }
 ```
+
+
+npm i -D copy-webpack-plugin

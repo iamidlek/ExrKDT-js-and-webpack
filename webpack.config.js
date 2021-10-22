@@ -1,12 +1,15 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = (env, options) => {
   return { 
     entry: './src/main.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'main.js',
+      filename: 'app.js',
+      publicPath: '/', //절대경로 추가
+      clean: true
     },
     module: {
       rules: [
@@ -28,7 +31,12 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './index.html'
+        template: './src/index.html'
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: 'static' }
+        ]
       })
     ]
   }
