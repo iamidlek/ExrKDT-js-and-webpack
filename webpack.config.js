@@ -1,4 +1,4 @@
-const path = require('path').resolve(__dirname, 'src')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -8,13 +8,13 @@ module.exports = (env, options) => {
     resolve: {
       extensions: ['.js'],
       alias: {
-        '~': path
+        '~': path.resolve(__dirname, 'src')
       }
     },
     entry: './src/main.js',
     output: {
-      path: path,
-      filename: 'app.js',
+      // path: path.resolve(__dirname, 'dist'),
+      // filename: 'app.js',
       publicPath: '/', //절대경로 추가
       clean: true
     },

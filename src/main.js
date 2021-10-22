@@ -1,4 +1,4 @@
-import checkType from '~/utils/checkType.js'
+import { checkType } from '~/utils/'
 import '~/scss/main.scss'
 
 console.log('hello')
