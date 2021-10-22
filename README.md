@@ -88,3 +88,70 @@ eslintrc
 - es2020(~~ES11~~) => Nullish Coalescing Operator, Optional chaining ...
 
 - es2021(~~ES12~~) => replaceAll, Promise.any, Numeric separators ...
+
+
+## 강의 추가 내용
+```bash
+npm i -D @babel/cli
+```
+```json
+{
+"scripts": {
+    "babel": "babel src/main.js --out-dir dist"
+  },
+}
+```
+
+- 변환 되는지 확인용
+
+```bash
+npm i -D @babel/plugin-transform-block-scoping
+npm i -D @babel/plugin-transform-arrow-functions
+npm i -D @babel/plugin-transform-classes
+```
+```json
+{
+  "plugins": [
+    "@babel/plugin-transform-block-scoping",
+    "@babel/plugin-transform-arrow-functions",
+    "@babel/plugin-transform-classes",
+  ]
+}
+ 
+// const 가 var 로 바뀜
+// 화살표 함수
+// 클래스가 변하는것
+```
+
+```json
+// 위의 설정들 대부분이 들어있는 것
+{
+  "presets": ["@babel/preset-env"],
+}
+```
+
+-------
+
+## 내부 core js
+
+- @babel/plugin-transform-runtime
+  - 밑의 것을 등록하기 위한 플러그인
+  - 변환하는 과정에서 폴리필(예전 버전으로 바꿀 때)  
+  helper함수를 이용해서 중복되는 코드를 최대로 줄임(재사용성 up)
+- @babel/runtime-corejs3
+  - includes 같은 문법 이해 가능
+
+```json
+// 내부적으로 corejs 2 가 기본
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3
+      }
+    ]
+  ]
+}
+```
