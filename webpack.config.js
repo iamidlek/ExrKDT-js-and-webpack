@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -7,7 +8,7 @@ module.exports = (env, options) => {
   console.log(env,options)
   return {
     resolve: {
-      extensions: ['.js'],
+      extensions: ['.js','.vue'],
       alias: {
         '~': path.resolve(__dirname, 'src')
       }
@@ -22,9 +23,14 @@ module.exports = (env, options) => {
     module: {
       rules: [
         {
+          test: /\.vue$/,
+          use: 'vue-loader'
+        },
+        {
           test: /\.s?css$/,
           use: [
-            'style-loader',
+            'vue-style-loader',
+            // 'style-loader',
             'css-loader',
             'postcss-loader',
             'sass-loader',
@@ -47,6 +53,10 @@ module.exports = (env, options) => {
         ]
       }),
       new VueLoaderPlugin(),
+      new webpack.DefinePlugin({
+        __VUE_OPTIONS_API__: true,
+        __VUE_PROD_DEVTOOLS__: false,
+      })
     ],
     devServer: {
       port: 8080,
