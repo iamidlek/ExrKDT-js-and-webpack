@@ -13,6 +13,15 @@ npm i -D html-webpack-plugin
 
 > npm dev run 확인 완료
 
+
+```bash
+npm i -D copy-webpack-plugin
+```
+
+> patterns-from static 으로 웹팩 설정
+> static 폴더의 정적 파일을 dist 폴더에 복사해서 온다
+> static/favicon.ico 는 자동으로 등록된다
+
 ```bash
 npm i -D css-loader style-loader
 ```
@@ -54,6 +63,31 @@ eslintrc
 (설치 하지 않아도 동작함)
 ```
 
+## Vue 프로젝트
+
+```bash
+npm i vue@next
+```
+
+```bash
+npm i -D @vue/compiler-sfc
+```
+
+> 싱글 파일 컴포넌트를 컴파일 할 수 있게 해줌 (컴포넌트별 vue 파일로 관리)
+
+```bash
+npm i -D vue-loader@next
+```
+
+> rules, plugins, resolve-extensions 등 webpack 설정  
+> npm i -D vue-loader@16 버전으로 고정해도 좋다
+
+```bash
+npm i -D vue-style-loader
+```
+
+> style-loader를 포함하고 있기 때문에 대체하여 rules에 설정한다
+
 ### eslintrc ES에 관하여
 
 ```json
@@ -75,9 +109,7 @@ eslintrc
 - es6(|| es2015) => arrows, classes, template strings, 
        destructuring, promises ...
 
-
 > 안먹음 ES7(2016) => Array.prototype.includes(), **
-
 
 - es2017(~~ES8~~) => async await, Object.values(), Object.entries()...
 
@@ -90,7 +122,7 @@ eslintrc
 - es2021(~~ES12~~) => replaceAll, Promise.any, Numeric separators ...
 
 
-## 강의 추가 내용
+### 강의 추가 내용
 ```bash
 npm i -D @babel/cli
 ```
@@ -132,7 +164,7 @@ npm i -D @babel/plugin-transform-classes
 
 -------
 
-## 내부 core js
+### 내부 core js
 
 - @babel/plugin-transform-runtime
   - 밑의 것을 등록하기 위한 플러그인
@@ -156,25 +188,18 @@ npm i -D @babel/plugin-transform-classes
 }
 ```
 
+### ssas란
 
-npm i -D copy-webpack-plugin
-
-from static 으로 설정
-
-static의 정적 파일을 dist 폴더에 복사해서 온다
-
-static/favicon.ico 는 자동으로 등록된다
-
-
-
-////
-
-ssas란
-css전처리기 preprocessor
+```text
+preprocessor
+css전처리기
 css가 동작하기 전에 변환
 
 postcss란
 후처리기
 css 완성된후 기는중 하나인 autoprefixer로 붙여줌
+```
 
-loader는 webpack과 패키지 간의 중간 전달 역할들
+### loader란
+
+-  webpack과 패키지 간의 중간 전달 역할
