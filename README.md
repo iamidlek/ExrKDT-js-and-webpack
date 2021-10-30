@@ -88,6 +88,13 @@ npm i -D vue-style-loader
 
 > style-loader를 포함하고 있기 때문에 대체하여 rules에 설정한다
 
+```bash
+npm i -D eslint-plugin-vue
+```
+
+> .eslintrc.json 을 설정해 준다
+
+
 ### eslintrc ES에 관하여
 
 ```json
