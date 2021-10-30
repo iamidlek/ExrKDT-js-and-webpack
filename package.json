@@ -10,8 +10,7 @@
   ],
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
-    "babel": "babel src/main.js --out-dir dist"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -36,6 +35,7 @@
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.4.0",
     "eslint": "^8.0.1",
+    "eslint-plugin-vue": "^8.0.1",
     "html-webpack-plugin": "^5.4.0",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
